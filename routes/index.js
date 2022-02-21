@@ -14,7 +14,7 @@ router.get('/', async function (req, res, next) {
     const addressMaster = Convert.toAddressMaster(JSON.stringify(map));
 
     addressMaster.data.forEach((e,i)=>{
-        console.log(e.);
+
     });
 
     res.render('index', {
