@@ -1,24 +1,26 @@
 var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
-
+var mysqlutils = require('./utils/mysql_utils.js');
+const Convert = require("./utils/address_master");
 /* GET home page. */
-router.get('/', function (req, res, next) {
-    var con = mysql.createConnection({
-        host     : '52.66.168.190',
-        port     :'3306',
-        user     : 'root',
-        password : '12345678',
-        database : 'mysql'
+router.get('/', async function (req, res, next) {
+    var sj = await new mysqlutils();
+    var data = await sj.getCategories();
+
+    var map = {"data":data}
+
+    console.log();
+    const addressMaster = Convert.toAddressMaster(JSON.stringify(map));
+
+    addressMaster.data.forEach((e,i)=>{
+        console.log(e.);
     });
 
-    con.connect(function(err) {
-        if (err) throw err;
-        console.log("Connected!");
-    });
     res.render('index', {
-        title: 'Express',
+        title: JSON.stringify(map),
     });
+
 });
 
 router.post('/formData', function (req, res) {
