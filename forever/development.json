@@ -1,0 +1,10 @@
+{
+  "uid": "app",
+  "append": true,
+  "watch": true,
+  "script": "app.js",
+  "sourceDir": "/Users/parmeet/WebstormProjects/vehicleapp",
+  "logFile": "/home/myuser/logs/forever.log",
+  "outFile": "/home/myuser/logs/out.log",
+  "errFile": "/home/myuser/logs/error.log"
+}
