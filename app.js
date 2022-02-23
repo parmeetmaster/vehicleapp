@@ -7,7 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var bodyParser = require('body-parser');
-
+var filehandle = require('./routes/file_handling_route');
 var app = express();
 
 // view engine setup
@@ -26,6 +26,7 @@ app.use(express.urlencoded({
 
 
 app.use('/', indexRouter);
+app.use('/', filehandle);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

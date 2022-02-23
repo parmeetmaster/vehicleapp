@@ -18,7 +18,7 @@ MySqlUtils.prototype.getconnection = async function () {
 MySqlUtils.prototype.getCategories = async function () {
     var con = await this.getconnection();
     return new Promise((resolve, reject)=>{
-        con.query("SELECT * FROM category_vehicle",  (error, elements)=>{
+        con.query("SELECT * FROM category_primary",  (error, elements)=>{
             if(error){
                 return reject(error);
             }
